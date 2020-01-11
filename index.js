@@ -53,6 +53,8 @@ app.group("/api/v1", (router) => {
 app.group("/api/v1", (router) => {
     router.get('/order/:id', OrdersController.index) // ====> END POINT FOR GET SCHEDULE AND ORDER TICKET
 })
-
+app.get("/", (req, res) => {
+    res.send("Hello World");
+});
 
 app.listen(port, () => console.log(`Loading on port ${port}!`))
