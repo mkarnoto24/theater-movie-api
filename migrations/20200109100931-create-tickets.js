@@ -41,10 +41,10 @@ module.exports = {
         onDelete: 'cascade'
       },
       theater_id: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'theaters', // 
+          model: 'theaters',
           key: 'id'
         },
         onUpdate: 'cascade',
