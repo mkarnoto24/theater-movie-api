@@ -1,0 +1,9 @@
+{
+    "name": "MOVIE THEATER API",
+    "version": "0.1.0",
+    "description": "this is documentation for MOVIE THEATER API",
+    "apidoc": {
+        "title": "THEATER API",
+        "url": "http://linkapikamu.com"
+    }
+}
