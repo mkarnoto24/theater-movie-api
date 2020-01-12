@@ -5,12 +5,12 @@ const bodyParser = require('body-parser')
 require('express-group-routes')
 
 const app = express()
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 8000
 
-//allow this app to receive incoming json request
+//ALLOW THIS APP TO RECEIVE INCOMING JSON REQUEST
 app.use(bodyParser.json())
 
-// ========#enable cors#======== //
+// ========#ENABLE CORS#======== //
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -45,7 +45,7 @@ app.group("/api/v1", (router) => {
 app.group("/api/v1", (router) => {
     router.get('/movies', MoviesController.index) // ====> END POINT FOR GET ALL MOVIE
     router.get('/movie/:id', MoviesController.show) // ====> END POINT FOR GET MOVIE BY ID MOVIE
-    router.post('/movies', MoviesController.store) // ====> END POINT FOR ADD MOVIE
+    router.post('/movie/post', MoviesController.store) // ====> END POINT FOR ADD MOVIE
     router.patch('/movies/:id', MoviesController.update) // ====> END POINT FOR UPDATE DATA MOVIE
     router.delete('/movies/:id', MoviesController.delete)// ====> END POINT FOR DELETE DATA ADMIN
 })
