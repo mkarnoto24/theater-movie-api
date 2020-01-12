@@ -45,7 +45,7 @@ app.group("/api/v1", (router) => {
 app.group("/api/v1", (router) => {
     router.get('/movies', MoviesController.index) // ====> END POINT FOR GET ALL MOVIE
     router.get('/movie/:id', MoviesController.show) // ====> END POINT FOR GET MOVIE BY ID MOVIE
-    router.post('/movie/post', MoviesController.store) // ====> END POINT FOR ADD MOVIE
+    router.post('/movie', MoviesController.store) // ====> END POINT FOR ADD MOVIE
     router.patch('/movies/:id', MoviesController.update) // ====> END POINT FOR UPDATE DATA MOVIE
     router.delete('/movies/:id', MoviesController.delete)// ====> END POINT FOR DELETE DATA ADMIN
 })
