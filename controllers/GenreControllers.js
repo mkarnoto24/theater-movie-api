@@ -4,8 +4,9 @@ exports.index = (req, res) => {
     // const Op = Sequelize.Op;
     Genre.findAll()
         .then(genre => res.json({
+
+            data: genre,
             error: false,
-            data: genre
         }))
         .catch(error => res.json({
             error: true,
@@ -18,9 +19,10 @@ exports.index = (req, res) => {
 exports.store = (req, res) => {
     Genre.create(req.body)
         .then(genre => res.status(201).json({
-            error: false,
+
             data: genre,
-            message: 'Success'
+            message: 'Success',
+            error: false,
         }))
         .catch(error => res.json({
             error: true,
@@ -33,6 +35,7 @@ exports.update = (req, res) => {
         req.body,
         { where: { id: req.params.id } })
         .then(genre => res.json({
+
             data: genre,
             error: false,
             message: 'Genre has been updated.'
