@@ -1,4 +1,4 @@
-const Movie = require('../models').movies
+// const Movie = require('../models').movies
 const Show = require('../models').shows
 const Theater = require('../models').theaters
 

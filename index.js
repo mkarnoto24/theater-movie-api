@@ -24,6 +24,7 @@ const { authenticated } = require('./middleware') // FOR AUTHENTICATION
 const CustomersController = require('./controllers/UsersControllers') //CONTROLLER FOR CUSTOMER
 const MoviesController = require('./controllers/MovieControllers') //CONTROLLER FOR MOVIE
 const AdminController = require('./controllers/AdminControllers') //CONTROLLER FOR ADMIN
+const GenreController = require('./controllers/GenreControllers') //CONTROLLER FOR ADMIN
 const OrdersController = require('./controllers/OrdersControllers') //CONTROLLER FOR SHOW SCHEDULE
 
 
@@ -43,6 +44,19 @@ app.group("/api/v1", (router) => {
     router.patch('/admin/:id', AdminController.update) // ====> END POINT FOR UPDATE DATA ADMIN
     router.delete('/admin/:id', AdminController.delete)// ====> END POINT FOR DELETE DATA ADMIN
 })
+
+
+
+// ======== GENRE ROUTER ======== //
+app.group("/api/v1", (router) => {
+    router.get('/genres', GenreController.index) // ====> END POINT FOR GET ALL GENRE DATA
+    router.post('/genre/post', authenticated, GenreController.store) // ====> END POINT ADD GENRE
+    router.patch('/genre/:id', authenticated, GenreController.update) // ====> END POINT FOR UPDATE DATA GENRE
+    router.delete('/genre/:id', authenticated, GenreController.delete)// ====> END POINT FOR DELETE DATA GENRE
+})
+
+
+
 // ======== MOVIE ROUTER ======== //
 app.group("/api/v1", (router) => {
     router.get('/movies', MoviesController.index) // ====> END POINT FOR GET ALL MOVIE
@@ -51,6 +65,8 @@ app.group("/api/v1", (router) => {
     router.patch('/movies/:id', authenticated, MoviesController.update) // ====> END POINT FOR UPDATE DATA MOVIE
     router.delete('/movies/:id', authenticated, MoviesController.delete)// ====> END POINT FOR DELETE DATA ADMIN
 })
+
+
 // ======== MOVIE ORDER TICKETING ======== //
 app.group("/api/v1", (router) => {
     router.get('/order/:id', OrdersController.index) // ====> END POINT FOR GET SCHEDULE AND ORDER TICKET
