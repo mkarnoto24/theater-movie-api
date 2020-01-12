@@ -72,6 +72,7 @@ app.group("/api/v1", (router) => {
 
 // ======== SHOW ROUTER ======== //
 app.group("/api/v1", (router) => {
+    router.get('/shows', ShowController.index)
     router.post('/show/post', authenticated, ShowController.store) // ====> END POINT FOR ADD MOVIE
     router.patch('/show/:id', authenticated, ShowController.update) // ====> END POINT FOR UPDATE DATA MOVIE
     router.delete('/show/:id', authenticated, ShowController.delete)// ====> END POINT FOR DELETE DATA ADMIN

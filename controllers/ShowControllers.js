@@ -1,4 +1,10 @@
 const Show = require('../models').shows
+
+exports.index = (req, res) => {
+    Show.findAll()
+        .then(shows => res.send(shows))
+        .catch(err => res.send(err))
+}
 //=====FOR ADD Show (JUST ADMIN WHO CAN BE ADD) ===== //
 exports.store = (req, res) => {
     Show.create(req.body).then(Show => {
