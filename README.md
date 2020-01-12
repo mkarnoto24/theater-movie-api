@@ -55,6 +55,6 @@ npm start
 
 ## Author
 
-**Moh. Karnoto** - (https://github.com/noto90)
+**Moh. Karnoto** -- (https://github.com/noto90)
 
 
