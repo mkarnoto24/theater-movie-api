@@ -24,8 +24,10 @@ const { authenticated } = require('./middleware') // FOR AUTHENTICATION
 const CustomersController = require('./controllers/UsersControllers') //CONTROLLER FOR CUSTOMER
 const MoviesController = require('./controllers/MovieControllers') //CONTROLLER FOR MOVIE
 const AdminController = require('./controllers/AdminControllers') //CONTROLLER FOR ADMIN
-const GenreController = require('./controllers/GenreControllers') //CONTROLLER FOR ADMIN
-const OrdersController = require('./controllers/OrdersControllers') //CONTROLLER FOR SHOW SCHEDULE
+const GenreController = require('./controllers/GenreControllers') //CONTROLLER FOR GENRE
+const OrdersController = require('./controllers/OrdersControllers') //CONTROLLER FOR ORDER
+const ShowController = require('./controllers/ShowControllers') //CONTROLLER FOR SHOW SCHEDULE
+const TheaterController = require('./controllers/TheaterControllers') //CONTROLLER FOR THEATER
 
 
 
@@ -68,10 +70,27 @@ app.group("/api/v1", (router) => {
 })
 
 
+// ======== SHOW ROUTER ======== //
+app.group("/api/v1", (router) => {
+    router.post('/show/post', authenticated, ShowController.store) // ====> END POINT FOR ADD MOVIE
+    router.patch('/show/:id', authenticated, ShowController.update) // ====> END POINT FOR UPDATE DATA MOVIE
+    router.delete('/show/:id', authenticated, ShowController.delete)// ====> END POINT FOR DELETE DATA ADMIN
+})
+
+// ======== THEATER ROUTER ======== //
+app.group("/api/v1", (router) => {
+    router.get('/theaters', TheaterController.index) // ====> END POINT FOR ADD MOVIE
+    router.post('/theater/post', authenticated, TheaterController.store) // ====> END POINT FOR ADD MOVIE
+    router.patch('/theater/:id', authenticated, TheaterController.update) // ====> END POINT FOR UPDATE DATA MOVIE
+    router.delete('/theater/:id', authenticated, TheaterController.delete)// ====> END POINT FOR DELETE DATA ADMIN
+})
+
+
 // ======== MOVIE ORDER TICKETING ======== //
 app.group("/api/v1", (router) => {
     router.get('/order/:id', OrdersController.index) // ====> END POINT FOR GET SCHEDULE AND ORDER TICKET
 })
+
 app.get("/", (req, res) => {
     res.send("Hello World");
 });
