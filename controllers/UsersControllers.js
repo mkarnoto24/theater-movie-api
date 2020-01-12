@@ -2,6 +2,11 @@ const jwt = require('jsonwebtoken')
 
 const models = require('../models')
 const Customer = models.customers
+exports.index = (req, res) => {
+    Customer.findAll()
+        .then(customer => res.send(customer))
+        .catch(err => res.send(err))
+}
 exports.login = (req, res) => {
 
     const email = req.body.email
@@ -15,7 +20,7 @@ exports.login = (req, res) => {
 
             res.send({
                 message: "success!",
-                customers:{
+                customers: {
                     id: customers.id, name: customers.name, phone_number: customers.phone_number
                 },
                 token

@@ -31,6 +31,7 @@ const OrdersController = require('./controllers/OrdersControllers') //CONTROLLER
 
 // ======== CUSTOMER ROUTER ======== //
 app.group("/api/v1", (router) => {
+    router.get('/customers', CustomersController.index)
     router.post('/customer/register', CustomersController.register) // ====> END POINT FOR REGISTER CUSTOMER
     router.post('/customer/login', CustomersController.login) // ====> END POINT FOR LOGIN CUSTOMER
     router.patch('/customer/:id', CustomersController.update) // ====> END POINT FOR UPDATE DATA CUSTOMERS
