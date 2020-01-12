@@ -17,18 +17,12 @@ exports.index = (req, res) => {
 
 //=====FOR ADD MOVIE (JUST ADMIN WHO CAN BE ADD) ===== //
 exports.store = (req, res) => {
-    Genre.create(req.body)
-        .then(genre => res.status(201).json({
-
-            data: genre,
-            message: 'Success',
-            error: false,
-        }))
-        .catch(error => res.json({
-            error: true,
-            data: [],
-            error: error
-        }));
+    Genre.create(req.body).then(genre => {
+        res.send({
+            message: "success",
+            genre
+        })
+    })
 }
 exports.update = (req, res) => {
     Genre.update(
