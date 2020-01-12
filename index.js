@@ -79,10 +79,10 @@ app.group("/api/v1", (router) => {
 
 // ======== THEATER ROUTER ======== //
 app.group("/api/v1", (router) => {
-    router.get('/theaters', TheaterController.index) // ====> END POINT FOR ADD MOVIE
-    router.post('/theater/post', authenticated, TheaterController.store) // ====> END POINT FOR ADD MOVIE
-    router.patch('/theater/:id', authenticated, TheaterController.update) // ====> END POINT FOR UPDATE DATA MOVIE
-    router.delete('/theater/:id', authenticated, TheaterController.delete)// ====> END POINT FOR DELETE DATA ADMIN
+    router.get('/theaters', TheaterController.index) // ====> END POINT FOR GET THEATER DATA
+    router.post('/theater/post', authenticated, TheaterController.store) // ====> END POINT FOR ADD THEATER DATA
+    router.patch('/theater/:id', authenticated, TheaterController.update) // ====> END POINT FOR UPDATE THEATER DATA
+    router.delete('/theater/:id', authenticated, TheaterController.delete)// ====> END POINT FOR DELETE THEATER DATA
 })
 
 
