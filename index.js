@@ -51,7 +51,7 @@ app.group("/api/v1", (router) => {
 app.group("/api/v1", (router) => {
     router.get('/genres', GenreController.index) // ====> END POINT FOR GET ALL GENRE DATA
     router.post('/genre/post', authenticated, GenreController.store) // ====> END POINT ADD GENRE
-    router.patch('/genre/:id', authenticated, GenreController.update) // ====> END POINT FOR UPDATE DATA GENRE
+    router.put('/genre/:id', authenticated, GenreController.update) // ====> END POINT FOR UPDATE DATA GENRE
     router.delete('/genre/:id', authenticated, GenreController.delete)// ====> END POINT FOR DELETE DATA GENRE
 })
 
