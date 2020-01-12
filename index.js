@@ -18,6 +18,8 @@ app.use(function (req, res, next) {
 });
 
 
+const { authenticated } = require('./middleware') // FOR AUTHENTICATION 
+
 // ========#IMPORT CONTROLLER#======== //
 const CustomersController = require('./controllers/UsersControllers') //CONTROLLER FOR CUSTOMER
 const MoviesController = require('./controllers/MovieControllers') //CONTROLLER FOR MOVIE
@@ -45,9 +47,9 @@ app.group("/api/v1", (router) => {
 app.group("/api/v1", (router) => {
     router.get('/movies', MoviesController.index) // ====> END POINT FOR GET ALL MOVIE
     router.get('/movie/:id', MoviesController.show) // ====> END POINT FOR GET MOVIE BY ID MOVIE
-    router.post('/movie/post', MoviesController.store) // ====> END POINT FOR ADD MOVIE
-    router.patch('/movies/:id', MoviesController.update) // ====> END POINT FOR UPDATE DATA MOVIE
-    router.delete('/movies/:id', MoviesController.delete)// ====> END POINT FOR DELETE DATA ADMIN
+    router.post('/movie/post', authenticated, MoviesController.store) // ====> END POINT FOR ADD MOVIE
+    router.patch('/movies/:id', authenticated, MoviesController.update) // ====> END POINT FOR UPDATE DATA MOVIE
+    router.delete('/movies/:id', authenticated, MoviesController.delete)// ====> END POINT FOR DELETE DATA ADMIN
 })
 // ======== MOVIE ORDER TICKETING ======== //
 app.group("/api/v1", (router) => {
