@@ -15,7 +15,7 @@ exports.index = (req, res) => {
         }));
 }
 
-//=====FOR ADD MOVIE (JUST ADMIN WHO CAN BE ADD) ===== //
+//=====FOR ADD GENRE (JUST ADMIN WHO CAN BE ADD) ===== //
 exports.store = (req, res) => {
     Genre.create(req.body).then(genre => {
         res.send({
@@ -29,7 +29,6 @@ exports.update = (req, res) => {
         req.body,
         { where: { id: req.params.id } })
         .then(genre => res.json({
-
             data: genre,
             error: false,
             message: 'Genre has been updated.'
