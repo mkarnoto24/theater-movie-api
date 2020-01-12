@@ -10,10 +10,6 @@ module.exports = (sequelize, DataTypes) => {
     //   as: "theatersId",
     //   foreignKey: "theater_id"
     // })
-    // theaters.hasMany(models.seats, {
-    //   as: "seat",
-    //   foreignKey: "theaters_id"
-    // })
   };
   return theaters;
 };

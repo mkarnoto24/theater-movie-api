@@ -18,10 +18,10 @@ module.exports = (sequelize, DataTypes) => {
       as: 'movieId',
       foreignKey: 'movie_id'
     })
-    shows.belongsTo(models.theaters, {
-      as: 'theaterId',
-      foreignKey: 'theater_id'
-    })
+    // shows.belongsTo(models.theaters, {
+    //   as: 'theaterId',
+    //   foreignKey: 'theater_id'
+    // })
   };
   return shows;
 };
